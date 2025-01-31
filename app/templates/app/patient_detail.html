@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+        <!--<div class="patient-entry">
+           <h2><a href="">{{patient.name}}</a></h2>
+           <p>{{patient.first_name}} {{patient.last_name}}</p>
+           <p>{{patient.date_of_birth}}</p>
+           <p>{{patient.address}}</p>
+           <p>{{patient.primary_caregiver}}</p> -->
+           <h1>Patient Details</h1>
+        <p><strong>Patient:</strong> {{patient.first_name}} {{patient.last_name}}</p>
+        <p><strong>date of birth:</strong> {{patient.date_of_birth}}</p>
+        <p><strong>Address:</strong> {{patient.address}}</p>
+        <p><strong>Caregiver:</strong> {{patient.primary_caregiver}}</p>
+
+         
+        
+       </div>
+        <a href="{% url 'patient_update' patient.pk %}"> + Edit Patient</a>
+        <a href="{% url 'patient_delete' patient.pk %}"> - Delete Patient</a>
+      
+        
+{% endblock content %}

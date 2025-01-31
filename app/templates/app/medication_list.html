@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% block title %}Medication List{% endblock title %}
+{% block content %}
+<h1>Medication List</h1>
+<a href="{% url 'medication_create' %}" class="button">+ Add Medication</a>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Dosage</th>
+            <th>Patient</th>
+            <th>instructions</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medication in medications %}
+        <tr>
+            <td>{{ medication.name }}</td>
+            <td>{{ medication.dosage }}</td>
+            <td>{{ medication.instructions }}</td>
+            <td>{{ medication.patient }}</td>
+            <td>
+                
+                <a href="{% url 'medication_update' medication.pk %}">Edit</a> |
+                <a href="{% url 'medication_delete' medication.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No medications found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

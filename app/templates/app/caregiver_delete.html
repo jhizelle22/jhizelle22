@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Delete Caregiver{% endblock title %}
+{% block content %}
+    <h1>Delete Caregiver</h1>
+    <p>Are you sure you want to delete {{ caregiver.first_name }} {{ caregiver.last_name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'caregiver_list' %}">Cancel</a>
+{% endblock content %}

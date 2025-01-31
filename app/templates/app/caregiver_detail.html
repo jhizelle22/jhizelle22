@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Caregiver Detail{% endblock title %}
+{% block content %}
+        <h1>Caregiver: {{ caregiver.first_name }} {{ caregiver.last_name }}</h1>
+        <p><strong>Email:</strong> {{ caregiver.email }}</p>
+        <p><strong>Phone Number:</strong> {{ caregiver.phone_number|default:"N/A" }}</p>
+        <a href="{% url 'caregiver_update' caregiver.pk %}">Edit</a> |
+        <a href="{% url 'caregiver_delete' caregiver.pk %}">Delete</a>
+        <br>
+        <a href="{% url 'caregiver_list' %}">Back to Caregiver List</a>
+{% endblock content %}

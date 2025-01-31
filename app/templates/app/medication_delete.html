@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Delete Medication{% endblock title %}
+{% block content %}
+    <h1>Delete Medication</h1>
+    <p>Are you sure you want to delete "{{ medication.name }} ({{ medication.dosage }})" for patient "{{ medication.patient }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'medication_list' %}">Cancel</a>
+{% endblock content %}

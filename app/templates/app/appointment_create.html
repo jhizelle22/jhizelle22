@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Create Appointment{% endblock %}
+
+{% block content %}
+    <h1>Create Appointment</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Appointment</button>
+    </form>
+    <br>
+    <a href="{% url 'appointment_list' %}">Back to Appointment List</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% block title %}Health Metric Detail{% endblock title %}
+{% block content %}
+    <h1>Health Metric Details</h1>
+    <p><strong>Patient:</strong> {{ health_metric.patient }}</p>
+    <p><strong>Metric Type:</strong> {{ health_metric.metric_type }}</p>
+    <p><strong>Value:</strong> {{ health_metric.value }}</p>
+    <p><strong>Measured At:</strong> {{ health_metric.measured_at }}</p>
+    <a href="{% url 'healthmetric_update' health_metric.pk %}">Edit</a> |
+    <a href="{% url 'healthmetric_delete' health_metric.pk %}">Delete</a>
+    <br>
+    <a href="{% url 'healthmetric_list' %}">Back to Health Metric List</a>
+{% endblock content %}

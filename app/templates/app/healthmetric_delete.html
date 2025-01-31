@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Delete Health Metric{% endblock title %}
+{% block content %}
+    <h1>Delete Health Metric</h1>
+    <p>Are you sure you want to delete the health metric "{{ health_metric.metric_type }} ({{ health_metric.value }})" for patient "{{ health_metric.patient }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'healthmetric_list' %}">Cancel</a>
+{% endblock content %}

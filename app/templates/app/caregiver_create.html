@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Add Caregiver{% endblock title %}
+{% block content %}
+    <h1>Add New Caregiver</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'caregiver_list' %}">Back to Caregiver List</a>
+{% endblock content %}

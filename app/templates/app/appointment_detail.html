@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Appointment Detail{% endblock %}
+
+{% block content %}
+    <h1>Appointment Details</h1>
+    <p><strong>Patient:</strong> {{ appointment.patient }}</p>
+    <p><strong>Appointment Date:</strong> {{ appointment.appointment_date }}</p>
+    <p><strong>Description:</strong> {{ appointment.description }}</p>
+    <p><strong>Resolved:</strong> {{ appointment.resolved }}</p>
+
+    <a href="{% url 'appointment_update' appointment.pk %}">Edit</a> |
+    <a href="{% url 'appointment_delete' appointment.pk %}">Delete</a>
+    <br>
+    <a href="{% url 'appointment_list' %}">Back to Appointment List</a>
+{% endblock %}

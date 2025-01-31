@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block title %}Edit Medication{% endblock title %}
+{% block content %}
+    <h1>Edit Medication</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'medication_list' %}">Back to Medication List</a>
+{% endblock content %}
