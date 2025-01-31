@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Navbar</title>
+    <title>Elegant Navbar</title>
     <style>
         /* General Reset */
         * {
@@ -13,7 +13,8 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
         }
 
         /* Navbar Styles */
@@ -21,11 +22,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color: #2c3e50;
             padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        header a {
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
             text-decoration: none;
             color: white;
             margin: 0 15px;
@@ -33,14 +47,8 @@
             transition: color 0.3s ease;
         }
 
-        header a:hover {
-            color: #00bcd4;
-        }
-
-        /* Mobile-friendly hamburger menu */
-        .navbar {
-            display: flex;
-            align-items: center;
+        nav a:hover {
+            color: #1abc9c;
         }
 
         .menu-toggle {
@@ -56,12 +64,19 @@
             margin: 3px 0;
         }
 
-        nav {
-            display: flex;
+        form button {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
         }
 
-        nav a {
-            margin: 0 10px;
+        form button:hover {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
         }
 
         /* Responsive Design */
@@ -73,13 +88,14 @@
             nav {
                 display: none;
                 flex-direction: column;
-                background-color: #333;
+                background-color: #2c3e50;
                 position: absolute;
                 top: 60px;
                 right: 30px;
                 width: 200px;
                 border-radius: 5px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 10px;
             }
 
             nav.active {
@@ -88,7 +104,8 @@
 
             nav a {
                 padding: 10px;
-                border-bottom: 1px solid #444;
+                display: block;
+                border-bottom: 1px solid #34495e;
             }
 
             nav a:last-child {
@@ -99,7 +116,7 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'login' %}"></a>
+        <a href="{% url 'home' %}" class="brand">Health Monitoring</a>
         <div class="navbar">
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -107,8 +124,6 @@
                 <span></span>
             </div>
             <nav>
-                
-                <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'about' %}">About</a>
                 <a href="{% url 'caregiver_list' %}">Caregiver</a>
                 <a href="{% url 'patient_list' %}">Patient</a>
@@ -116,13 +131,9 @@
                 <a href="{% url 'healthmetric_list' %}">Healthmetric</a>
                 <a href="{% url 'appointment_list' %}">Appointment</a>
                 <form method="post" action="{% url 'logout' %}">
-                    {%  csrf_token  %}
-                    <button type="sumit">log out</button>
+                    {% csrf_token %}
+                    <button type="submit">Log Out</button>
                 </form>
-                
-
-
-                
             </nav>
         </div>
     </header>

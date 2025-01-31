@@ -1,34 +1,38 @@
 {% extends 'app/base.html' %}
 {% block title %}Health Metric List{% endblock title %}
+
 {% block content %}
-<h1>Health Metric List</h1>
-<a href="{% url 'healthmetric_create' %}" class="button">+ Add Health Metric</a>
-<table>
-    <thead>
+<h1 style="text-align: center; color: #2c3e50;">Health Metric List</h1>
+
+<div style="text-align: center; margin-bottom: 20px;">
+    <a href="{% url 'healthmetric_create' %}" class="button" style="background-color: #1abc9c; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">+ Add Health Metric</a>
+</div>
+<table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); border-radius: 5px;">
+    <thead style="background-color: #2c3e50; color: white;">
         <tr>
-            <th>Patient</th>
-            <th>Metric Type</th>
-            <th>Value</th>
-            <th>Measured At</th>
-            <th>Actions</th>
+            <th style="padding: 10px; border-bottom: 2px solid #34495e;">Patient</th>
+            <th style="padding: 10px; border-bottom: 2px solid #34495e;">Metric Type</th>
+            <th style="padding: 10px; border-bottom: 2px solid #34495e;">Value</th>
+            <th style="padding: 10px; border-bottom: 2px solid #34495e;">Measured At</th>
+            <th style="padding: 10px; border-bottom: 2px solid #34495e;">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for health_metric in health_metrics %}
-        <tr>
-            <td>{{ health_metric.patient }}</td>
-            <td>{{ health_metric.metric_type }}</td>
-            <td>{{ health_metric.value }}</td>
-            <td>{{ health_metric.measured_at }}</td>
-            <td>
-                <a href="{% url 'healthmetric_detail' health_metric.pk %}">View</a> |
-                <a href="{% url 'healthmetric_update' health_metric.pk %}">Edit</a> |
-                <a href="{% url 'healthmetric_delete' health_metric.pk %}">Delete</a>
+        <tr style="border-bottom: 1px solid #ecf0f1; text-align: center;">
+            <td style="padding: 10px;">{{ health_metric.patient }}</td>
+            <td style="padding: 10px;">{{ health_metric.metric_type }}</td>
+            <td style="padding: 10px;">{{ health_metric.value }}</td>
+            <td style="padding: 10px;">{{ health_metric.measured_at }}</td>
+            <td style="padding: 10px;">
+                <a href="{% url 'healthmetric_detail' health_metric.pk %}" style="color: #3498db; text-decoration: none;">View</a> |
+                <a href="{% url 'healthmetric_update' health_metric.pk %}" style="color: #f39c12; text-decoration: none;">Edit</a> |
+                <a href="{% url 'healthmetric_delete' health_metric.pk %}" style="color: #e74c3c; text-decoration: none;">Delete</a>
             </td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="5">No health metrics found.</td>
+            <td colspan="5" style="text-align: center; padding: 20px;">No health metrics found.</td>
         </tr>
         {% endfor %}
     </tbody>
